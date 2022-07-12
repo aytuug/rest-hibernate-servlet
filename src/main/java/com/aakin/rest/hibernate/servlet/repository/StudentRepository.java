@@ -10,7 +10,7 @@ import java.util.List;
 
 public class StudentRepository {
 
-    public static Student FindById(int id){
+    public  Student FindById(int id){
         Session session = HibDataSource.getSession();
         session.beginTransaction();
 
@@ -18,7 +18,7 @@ public class StudentRepository {
         return student;
     }
 
-    public static int SignUp(Student student){
+    public  int SignUp(Student student){
         Session session = HibDataSource.getSession();
         session.beginTransaction();
 
@@ -28,7 +28,7 @@ public class StudentRepository {
     }
 
 
-    public static void UpdateStudent(Student student){
+    public  void UpdateStudent(Student student){
         Session session = HibDataSource.getSession();
         session.beginTransaction();
 
@@ -37,17 +37,28 @@ public class StudentRepository {
         session.beginTransaction().commit();
     }
 
-    public static List<Student> GetStudentList(){
+    public  List<Student> GetStudentList(){
         Session session = HibDataSource.getSession();
         session.beginTransaction();
 
-        List<Student> list = session.createQuery("FROM Student ").getResultList();
+        List<Student> list = session.createQuery("FROM Student").getResultList();
         for (Student student : list){
             System.out.println(student.getFirstName());
         }
         session.getTransaction().commit();
         return list;
     }
+
+    public  List<Student> GetStudentListBySchoolId(int id){
+        Session session = HibDataSource.getSession();
+        session.beginTransaction();
+
+        List<Student> list = session.createQuery("FROM Student where school.id= "+ id).getResultList();
+
+        session.getTransaction().commit();
+        return list;
+    }
+
 
     public static void deleteStu(int id){
         Session session = HibDataSource.getSession();

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ManagerRepository {
 
-    public static Manager FindById(int id){
+    public  Manager FindById(int id){
         Session session = HibDataSource.getSession();
         session.beginTransaction();
 
@@ -16,7 +16,7 @@ public class ManagerRepository {
         return manager;
     }
 
-    public static int SignUp(Manager manager){
+    public  int SignUp(Manager manager){
         Session session = HibDataSource.getSession();
         session.beginTransaction();
 
@@ -26,7 +26,7 @@ public class ManagerRepository {
     }
 
 
-    public static void UpdateManager(Manager manager){
+    public  void UpdateManager(Manager manager){
         Session session = HibDataSource.getSession();
         session.beginTransaction();
 
@@ -35,19 +35,17 @@ public class ManagerRepository {
         session.beginTransaction().commit();
     }
 
-    public static List<Manager> GetManagerList(){
+    public  List<Manager> GetManagerList(){
         Session session = HibDataSource.getSession();
         session.beginTransaction();
 
         List<Manager> list = session.createQuery("FROM Manager").getResultList();
-        for (Manager manager : list){
-            System.out.println(manager.getFirstName());
-        }
+
         session.getTransaction().commit();
         return list;
     }
 
-    public static void deleteMan(int id){
+    public  void deleteMan(int id){
         Session session = HibDataSource.getSession();
         session.beginTransaction();
 

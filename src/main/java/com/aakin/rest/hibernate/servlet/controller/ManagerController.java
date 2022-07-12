@@ -26,6 +26,9 @@ public class ManagerController extends HttpServlet {
         List<Manager> managers = managerRepository.GetManagerList();
 
         String managerJsonString = this.gson.toJson(managers);
+        System.out.println(managerJsonString);
+
+
 
         PrintWriter out = resp.getWriter();
         resp.setContentType("application/json");

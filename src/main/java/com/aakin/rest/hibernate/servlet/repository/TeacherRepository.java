@@ -10,7 +10,7 @@ import java.util.List;
 public class TeacherRepository {
 
 
-    public static List<Teacher> GetTeacherList(){
+    public  List<Teacher> GetTeacherList(){
         Session session = HibDataSource.getSession();
         session.beginTransaction();
 
