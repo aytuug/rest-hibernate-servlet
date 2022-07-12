@@ -3,8 +3,7 @@
 1) Database created.(Postgresql) included relation -> One To One, One To Many, Many To Many (I have attached screenshots)
 2) Hibernate configuration is provided, Entities are written.
 4) Necessary services and repositories have been added.
-5) DTO's were written.
-6)Controllers have been made ready.
+5) DTO's were written, Controllers have been made ready.
 
 
 
